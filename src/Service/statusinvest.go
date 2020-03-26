@@ -42,6 +42,7 @@ func ScrapIndice(paperName string) (Paper model.Indice) {
 		log.Println("Minima mensal:", Paper.MinInMonth)
 		log.Println("Apreciação ( ou depreciação ):", Paper.MonthAppreciation)
 		log.Println("Variação:", Paper.Variation)
+
 	})
 
 	return
