@@ -11,6 +11,8 @@ func main() {
 	args := os.Args[1:]
 	for _, x := range args {
 		log.Println("Procurando numeros para o a ação: ")
-		service.ScrapIndice(x)
+		stock := service.ScrapIndice(x)
+		stock.PrintPtBr()
+
 	}
 }
