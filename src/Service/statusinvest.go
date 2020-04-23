@@ -13,7 +13,7 @@ var (
 )
 
 // ScrapIndice get data from a specific paper
-func ScrapIndice(paperName string) (Paper model.Indice) {
+func ScrapIndice(paperName string) (Paper model.Stock) {
 	resp, err := http.Get(baseURL + "/acoes/" + paperName)
 	if err != nil {
 		log.Printf("[ScrapIndice] - Can´t get response from %v ", baseURL)
@@ -34,14 +34,10 @@ func ScrapIndice(paperName string) (Paper model.Indice) {
 		Paper.MinInMonth = s.Find("#main-2 > div:nth-child(3) > div > div.pb-3.pb-md-5 > div > div:nth-child(2) > div > div.d-flex.justify-between > div > span.sub-value").Text()
 		Paper.MonthAppreciation = s.Find("#main-2 > div:nth-child(3) > div > div.pb-3.pb-md-5 > div > div:nth-child(5) > div > div.d-flex.justify-between > div > span.sub-value > b").Text()
 		Paper.Variation = s.Find("#main-2 > div:nth-child(3) > div > div.pb-3.pb-md-5 > div > div:nth-child(5) > div > div:nth-child(1) > strong").Text()
-		log.Printf(Paper.Name)
-		log.Printf("Valor atual: %s", Paper.Value)
-		log.Printf("Variação: %s", Paper.Variation)
-		log.Println("Ultimo valor pago:", Paper.LastPayment)
-		log.Println("Maxima no mês:", Paper.MaxInMonth)
-		log.Println("Minima mensal:", Paper.MinInMonth)
-		log.Println("Apreciação ( ou depreciação ):", Paper.MonthAppreciation)
-		log.Println("Variação:", Paper.Variation)
+		Paper.Roe = s.Find("#main-2 > div:nth-child(3) > div > div:nth-child(5) > div > div:nth-child(16) > div > div > strong").Text()
+		Paper.TotalAssets = s.Find("#company-section > div > div.top-info.info-3.sm.d-flex.justify-between.mb-5 > div:nth-child(1) > div > div > strong").Text()
+		Paper.Valuation = "R$ " + s.Find("#company-section > div > div.top-info.info-3.sm.d-flex.justify-between.mb-5 > div:nth-child(7) > div > div > strong").Text()
+		Paper.TotalStocks = "R$ " + s.Find("#company-section > div > div.top-info.info-3.sm.d-flex.justify-between.mb-5 > div:nth-child(9) > div > div > strong").Text()
 
 	})
 
