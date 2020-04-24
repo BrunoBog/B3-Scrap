@@ -13,6 +13,5 @@ func main() {
 		log.Println("Procurando numeros para o a ação: ")
 		stock := service.ScrapIndice(x)
 		stock.PrintPtBr()
-
 	}
 }

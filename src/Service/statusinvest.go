@@ -38,7 +38,6 @@ func ScrapIndice(paperName string) (Paper model.Stock) {
 		Paper.TotalAssets = s.Find("#company-section > div > div.top-info.info-3.sm.d-flex.justify-between.mb-5 > div:nth-child(1) > div > div > strong").Text()
 		Paper.Valuation = "R$ " + s.Find("#company-section > div > div.top-info.info-3.sm.d-flex.justify-between.mb-5 > div:nth-child(7) > div > div > strong").Text()
 		Paper.TotalStocks = "R$ " + s.Find("#company-section > div > div.top-info.info-3.sm.d-flex.justify-between.mb-5 > div:nth-child(9) > div > div > strong").Text()
-
 	})
 
 	return
