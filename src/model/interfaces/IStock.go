@@ -1,0 +1,4 @@
+type IStock interface {
+	PrintPtBr() 
+	
+}
