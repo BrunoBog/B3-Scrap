@@ -1,5 +1,5 @@
 # B3-Scrap
-Wrapper to get B3 indices from https://statusinvest.com.br/acoes/bidi4 website
+Wrapper to get B3 indices from https://statusinvest.com.br/acoes website
 
 - Use "go get" to download and install all project dependences
 - this Repository has 2 "modes" 
